@@ -1,1 +1,5 @@
-const navbar = []
+const navbar = [
+    {
+        id: 1,
+    }
+]
