@@ -1,11 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-family: 'Roboto', sans-serif;
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0d4367;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0a263a;
+}
+
+
+:root {
+  /* colors */
+  --colorPrimary: #00CBFF;
+  --colorSecondary: #65E700;
+
+  /* background */
+  --backgroundPrimary: #F0FFFA;
+  --formColor: #93CEFFC7;
+  --footerColor: #D6F3FF;
+  --padding: 5px 130px;
+  --large: 1920px;
+  --mian: 1440px;
+  --laptop: 1366px;
+  --netbook: 1024px;
+  --planshet: 800px;
+  --mobile: 428px;
+  --mobile-mini: 360px;
+}
+
+
+h1 {
+  color: #000;
+  font-family: Inter;
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 124.523%;
+
+}
+
+h2 {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.contents {
+  color: #202020;
+font-family: Inter;
+font-size: 28px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+h3 {
+  color: #00CBFF;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135.523%;
+
+}
+
+
+.text {
+  color: #000;
+  font-family: Myanmar MN;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: justify;
+}
+
+.subTitle {
+  color: #000;
+  font-family: Myanmar MN;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cardText {
+  color: #51D9EC;
+  font-family: Myanmar MN;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+
+.btn{
+  background: transparent;
+  border:none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+}
+.til{
+  width: 30px;
+  height:20px;
 }
