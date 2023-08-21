@@ -12,7 +12,7 @@ const Services = () => {
   return (
     <div>
       <Container>
-        <Button type={'secondary'} width={'320'} height={'84'} mt={'90'}>{t('contact')}</Button>
+        <Button type={'secondary'} width={'320'} height={'84'} mt={'90'} mb={'40'}>{t('contact')}</Button>
         <h3>{t('ServiceTitle')}</h3>
 
         <CardWrapper>

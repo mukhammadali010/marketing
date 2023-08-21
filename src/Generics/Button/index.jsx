@@ -3,6 +3,7 @@ import { Container } from './style'
 
 const Button = ({
         type,
+        ty,
         width,
         height,
         mt,
@@ -27,6 +28,7 @@ const Button = ({
     ml = {ml}
     gap ={gap}
     br={br}
+    ty={ty}
     padding ={padding}
     onClick={onclick}
     >
