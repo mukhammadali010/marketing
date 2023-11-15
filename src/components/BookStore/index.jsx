@@ -4,6 +4,7 @@ import Button from "../../Generics/Button";
 
 import Input from "../../Generics/Input";
 import Card from "../Card";
+import Yandex from "../Yandex";
 import {Container, Content , CardsWrap} from "./style";
 
 const BookStore = () => {
@@ -25,16 +26,17 @@ const BookStore = () => {
     <>
     <Container>
       <Content>
-        <h1>ALL INFORMATION ABOUT WEATHER AND ECOLOGICAL CONDITIONS</h1>
+        <h1>ALL INFORMATION ABOUT WEATHER AND ECOLOGICAL CONDITIONS in</h1>
         <div>
           <Input width={'320'} onChange= {onChange} placeholder = {'Enter location'} br={'6'}/>
           <Button width={'180'} type={'primary'} br={'6'}>Submit</Button>
         </div>
       </Content>
-      <p className="task">Today's weather</p>
+      <p className="task">Today's weather of </p>
       <CardsWrap>
         <Card/>
       </CardsWrap>
+      <Yandex/>
     </Container>
     </>
   );
