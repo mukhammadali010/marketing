@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Mulish:wght@200;400&display=swap');
 
 body {
   font-family: 'Inter', sans-serif;
@@ -31,41 +31,62 @@ body {
 
 :root {
   /* colors */
-  --colorPrimary: #00CBFF;
-  --colorSecondary: #65E700;
+  --colorPrimary: #6200EE;
+  --colorSecondary: #9654F4;
 
   /* background */
-  --backgroundPrimary: #F0FFFA;
-  --formColor: #93CEFFC7;
-  --footerColor: #D6F3FF;
+  --backgroundPrimary: #FEFEFE;
+ 
   --padding: 5px 130px;
-  --large: 1920px;
-  --mian: 1440px;
-  --laptop: 1366px;
-  --netbook: 1024px;
-  --planshet: 800px;
-  --mobile: 428px;
-  --mobile-mini: 360px;
+ 
 }
 
 
 h1 {
-  color: #000;
-  font-family: Inter;
-  font-size: 55px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 124.523%;
+  color: var(--foundation-white-white-50, #FEFEFE);
+font-family: Mulish;
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 
 }
 
 h2 {
-  color: #FFF;
-  font-family: Inter;
-  font-size: 40px;
+  color: var(--foundation-grey-grey-900, #151515);
+  font-family: Mulish;
+  font-size: 36px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
+}
+h3{
+  color: #FFF;
+font-family: Mulish;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%;
+letter-spacing: 0.576px;
+}
+h5{
+  color: var(--foundation-grey-grey-900, #151515);
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.textCard{
+  color: var(#333);
+font-family: Mulish;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%;
+}
+span{
+  color: #6200EE;
 }
 
 .contents {
@@ -77,15 +98,6 @@ font-weight: 500;
 line-height: normal;
 }
 
-h3 {
-  color: #00CBFF;
-  font-family: Inter;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 135.523%;
-
-}
 
 
 .text {
@@ -107,14 +119,6 @@ h3 {
   line-height: normal;
 }
 
-.cardText {
-  color: #51D9EC;
-  font-family: Myanmar MN;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 12px;
-}
 
 
 .btn{
@@ -128,4 +132,11 @@ h3 {
 .til{
   width: 30px;
   height:20px;
+}
+
+body{
+  background-image: url(./assets/img/-hcZ_7-TG7c.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

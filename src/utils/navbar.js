@@ -1,44 +1,71 @@
-import Home from "../components/Home";
+
+import useUniqueId from "../hooks/index.jsx";
+import React from "react";
+const Home = React.lazy(() => import("../pages/HomePage/HomePage.jsx"));
+const SignIn = React.lazy(() => import("../pages/SignInPage/SignInPage.jsx"));
+const SignUp = React.lazy(() => import("../pages/SignUpPage/SignUpPage.jsx"));
 
 export const navbar = [
-    {
-        id: 1,
-        path: "uslugi",
-        title: "Наши услуги",
-        element: (
-          <Home/>
-        ),
-        isPrivate: false,
-        isHidden: false,
-      },
-      {
-        id: 2,
-        path: "onas",
-        title: "О нас",
-        element: (
-          <Home/>
-        ),
-        isPrivate: false,
-        isHidden: false,
-      },
-      {
-        id: 3,
-        path: "komanda",
-        title: "Наша команда",
-        element: (
-          <Home/>
-        ),
-        isPrivate: false,
-        isHidden: false,
-      },
-      {
-        id: 4,
-        path: "nami",
-        title: "Свяжитесь с нами",
-        element: (
-          <Home/>
-        ),
-        isPrivate: false,
-        isHidden: false,
-      },
-]
+  {
+    id: useUniqueId,
+    path: "home",
+    title: "Home",
+    element: (
+      <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
+        <Home />
+      </React.Suspense>
+    ),
+    isPrivate: false,
+    isHidden: false,
+  },
+  {
+    id: useUniqueId,
+    path: "signin",
+    title: "SignIn",
+    element: (
+      <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
+        <SignIn />
+      </React.Suspense>
+    ),
+    isPrivate: false,
+    isHidden: false,
+  },
+  {
+    id: useUniqueId,
+    path: "signup",
+    title: "SignUp",
+    element: (
+      <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
+        <SignUp/>
+      </React.Suspense>
+    ),
+    isPrivate: false,
+    isHidden: false,
+  },
+ 
+//   {
+//     id: useUniqueId,
+//     path: "properties/:id",
+//     title: "Single house",
+//     element: (
+//       <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
+//         <HouseItemPage />
+//       </React.Suspense>
+//     ),
+//     isPrivate: false,
+//     isHidden: true,
+//   },
+//   {
+//     id: useUniqueId, 
+//     path: "register",
+//     title: "Register",
+//     element: (
+//       <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
+//         <RegisterPage/>
+//       </React.Suspense>
+//     ),
+//     isPrivate: false,
+//     isHidden: true,
+//   },
+  
+];

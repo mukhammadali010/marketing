@@ -11,6 +11,7 @@ export const Input = forwardRef(
       mb,
       mr,
       ml,
+      br,
       gap,
       padding,
       placeholder,
@@ -31,6 +32,7 @@ export const Input = forwardRef(
         mb={mb}
         mr={mr}
         ml={ml}
+        br={br}
         gap={gap}
         padding={padding}
         placeholder={placeholder}

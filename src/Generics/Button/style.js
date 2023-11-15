@@ -4,6 +4,7 @@ const getType = ({ type }) => {
   switch (type) {
     case "primary":
       return {
+        border:'none',
         background: `var(--colorPrimary)`,
         color: `#fff`,
       };
@@ -16,8 +17,9 @@ const getType = ({ type }) => {
     case "third":
       return {
         background: `transparent`,
-        color: `#fff`,
-        border: `1px solid #fff`,
+        color: `#000`,
+        border: `1px solid #000`,
+
       };
       case "card":
       return {
@@ -40,7 +42,7 @@ const Container = styled.button`
   padding: 12px 40px;
   border:none;
   gap: ${({ gap }) => (gap ? `${gap}px` : "10px")};
-  width: ${({ width }) => (width ? `${width}px` : "fit-content")};
+  width: ${({ width }) => (width ? `${width}px` : "100%")};
   height: ${({ height }) => (height ? `${height}px` : "44px")};
   margin-bottom: ${({ mb }) => (mb ? `${mb}px` : "auto")};
   margin-top: ${({ mt }) => (mt ? `${mt}px` : "auto")};

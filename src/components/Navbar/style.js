@@ -1,25 +1,13 @@
 import styled from "styled-components";
-
-
-const MainWrapper = styled.div`
-position: relative;
-.fon{
-  position: absolute;
-  top:0;
-  left: 0;
-  z-index:-111;
-
-}
-.fon1{
-  position: absolute;
-  top:0;
-  right:0;
-  z-index:-111;
-}
-`
+import {ReactComponent as logo} from '../../assets/icons/bi_cloud-check.svg'
+import {ReactComponent as search} from '../../assets/icons/search-refraction.svg'
+import {ReactComponent as bell} from '../../assets/icons/bell.svg'
 const Container = styled.div`
   width: 100%;
   padding: var(--padding);
+  background-image: url("../../assets/img/bgimage.png");
+  background-size: cover;
+  background-position: center;
 `;
 
 const Nav = styled.div`
@@ -32,37 +20,11 @@ const Nav = styled.div`
 Nav.Column = styled.div`
   display: flex;
   align-items: center;
-  width: ${({ logo }) => logo && "200px"} ;
-  gap: 10px;
-  gap: ${({ menu }) => menu && "64px"};
-  cursor: ${({ logo }) => logo && "pointer"};
-  justify-content: ${({ menu }) => menu && "center"};
-  justify-content: ${({ button }) => button && "flex-end"};
-  @media (max-width: 834px) {
-    justify-content: ${({ menu }) => menu && "center"};
-    gap: 10px;
-    cursor: pointer;
-  }
+  justify-content: center;
+  position:relative; 
+  gap:20px;
 
-
-  ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    li {
-      a {
-        text-decoration: none;
-        color: #000;
-        font-family: Montserrat;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-      }
-    }
-  }
+ 
 `;
 const Content = styled.div`
 width: 550px;
@@ -78,4 +40,26 @@ align-items: center;
 justify-content: space-between;
 
 `
-export {MainWrapper, Container, Nav , Content , Wrapper};
+const Logo = styled(logo)`
+/* margin-top:10px; */
+`
+const Search= styled(search)`
+/* position:absolute; */
+/* left:170px; */
+`
+const Bell= styled(bell)`
+`
+const Avatar = styled.div`
+display: flex;
+padding: 3px;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 40px;
+height:40px;
+border-radius: 50%;
+border: 2px solid #FD648E;
+background: var(--gradient, conic-gradient(from 180deg at 50% 50%, #FD648E 0deg, #884CB2 178.1249964237213deg, #FD648E 360deg));
+backdrop-filter: blur(15px);
+`
+export {Container, Nav , Content , Wrapper , Logo , Search , Bell , Avatar};
