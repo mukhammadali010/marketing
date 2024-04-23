@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 32px;
   border-radius: 12px;
   background: var(--foundation-white-white-50, #fefefe);
@@ -10,6 +10,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  .card__title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
   .cardFooter{
     display: flex;
     align-items: center;

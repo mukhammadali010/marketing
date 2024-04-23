@@ -1,4 +1,5 @@
 
+import AutoSanoat from "../components/AutoSanoat/index.jsx";
 import useUniqueId from "../hooks/index.jsx";
 import React from "react";
 const Home = React.lazy(() => import("../pages/HomePage/HomePage.jsx"));
@@ -37,6 +38,18 @@ export const navbar = [
     element: (
       <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
         <SignUp/>
+      </React.Suspense>
+    ),
+    isPrivate: false,
+    isHidden: false,
+  },
+  {
+    id: useUniqueId,
+    path: "automobilSanoat",
+    title: "automobilSanoat",
+    element: (
+      <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
+        <AutoSanoat/>
       </React.Suspense>
     ),
     isPrivate: false,

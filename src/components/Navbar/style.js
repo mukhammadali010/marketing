@@ -8,6 +8,9 @@ const Container = styled.div`
   background-image: url("../../assets/img/bgimage.png");
   background-size: cover;
   background-position: center;
+  position:sticky;
+  top:0;
+  background-color:skyblue 
 `;
 
 const Nav = styled.div`
@@ -15,14 +18,13 @@ const Nav = styled.div`
   max-width: 1440px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between !important;
 `;
 Nav.Column = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  position:relative; 
-  gap:20px;
+ 
 
  
 `;

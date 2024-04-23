@@ -18,7 +18,8 @@ export const Input = forwardRef(
       onChange,
       defaultValue,
       name,
-      type
+      type,
+      onKeyPress
     },
       ref , 
   ) => {
@@ -26,6 +27,7 @@ export const Input = forwardRef(
       <Container
         typing={typing}
         ref={ref}
+        onKeyPress={onKeyPress}
         width={width}
         height={height}
         mt={mt}
