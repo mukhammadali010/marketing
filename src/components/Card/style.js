@@ -11,6 +11,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+  cursor:pointer;
   .card__title{
     display: flex;
     align-items: center;
@@ -23,6 +28,7 @@ const Container = styled.div`
     justify-content: space-between;
     width: 100%;
   }
+
 `;
 
 

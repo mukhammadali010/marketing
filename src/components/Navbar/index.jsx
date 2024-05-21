@@ -49,7 +49,12 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const navigation = (route) => {
-    navigate(route);
+    if (route === '/home') {
+      navigate(route); // Navigate to '/home'
+      window.location.reload(); // Reload the page after navigation
+    } else {
+      navigate(route); // Navigate to other routes
+    }
   };
 
   return (
@@ -77,6 +82,10 @@ const Navbar = () => {
                           </ListItemButton>
                         ) : item === 'Sanoat' ? (
                           <ListItemButton aria-controls="about-menu" aria-haspopup="true" onClick={handleClick}>
+                            <ListItemText primary={item} />
+                          </ListItemButton>
+                        ) : item === 'Aloqa' ? (
+                          <ListItemButton onClick={() => navigation('/contact')} sx={{ textAlign: 'center' }}>
                             <ListItemText primary={item} />
                           </ListItemButton>
                         ) : (

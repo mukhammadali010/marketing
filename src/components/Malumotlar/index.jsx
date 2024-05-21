@@ -28,7 +28,7 @@ const Malumotlar = () => {
 
   return (
     <>
-      <h1 style={{backgroundColor:'white' , color:'black' ,padding:'20px 30px'}}>Foydali malumotlar</h1>
+      <h1 style={{backgroundColor:'white' , color:'#1976d2' ,padding:'20px 30px'}}>Foydali malumotlar</h1>
       <Container>
         {
           cardData.map((value, index) => {

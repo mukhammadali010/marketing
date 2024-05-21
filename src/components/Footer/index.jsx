@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <Container>
       <FooterSection>
-        <FooterTitle>Contact Us</FooterTitle>
-        <FooterItem>Email: contact@example.com</FooterItem>
-        <FooterItem>Phone: +123 456 7890</FooterItem>
-        <FooterItem>Address: 123 Fake Street, Faketown, FK 12345</FooterItem>
+        <FooterTitle>Biz bilan Aloqa</FooterTitle>
+        <FooterItem>Email: muhammadalinosirov34@gmail.com</FooterItem>
+        <FooterItem>Phone: +998904061430</FooterItem>
+        <FooterItem>Address: Toshkent 100084, Amir Temur shox ko‘chasi 108 uy </FooterItem>
       </FooterSection>
 
       <FooterSection>
