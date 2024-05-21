@@ -143,3 +143,51 @@ body{
 .white-text{
   color: white;
 }
+.ymaps-2-1-79-gotoymaps__text{
+  display: none !important;
+}
+.ymaps-2-1-79-gotoymaps__container{
+  display: none !important;
+} 
+.ymaps-2-1-79-copyright__wrap{
+  display: none !important;
+}
+.btnGenerate{
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: #0d4367;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  margin: 30px 0;
+  position: absolute;
+  top: 60px;
+ 
+}
+.ymaps-2-1-79-searchbox__input-cell{
+  display: none !important;
+}
+.ymaps-2-1-79-search {
+  display: none !important;
+}
+
+
+.cardMonitoring{
+  display: block;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 4px 20px 0px rgba(60, 60, 60, 0.08);
+  width: 50%;
+  height: 170px;
+  padding: 30px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.wrap{
+  display: flex;
+}
+.eco{
+  text-align: justify;
+  font-size: 18px;
+}

@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  padding: var(--padding);
-  margin-top: 50px;
-
   .task {
     color: var(--foundation-white-white-50, #fefefe);
     font-family: Mulish;

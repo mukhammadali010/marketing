@@ -1,58 +1,101 @@
 import React, { useEffect, useState } from 'react';
 
+// Define API keys for Yandex Maps and OpenWeatherMap
+const YANDEX_MAPS_API_KEY = '78eb91a1-8baf-4f28-be21-30ad54e78407';
+const OPENWEATHERMAP_API_KEY = 'd58082d2702339083a04cf97256b417f';
+
 const MapComponent = () => {
     const [map, setMap] = useState(null);
+    const [windDirection, setWindDirection] = useState(0);
     const [circles, setCircles] = useState([]);
 
     useEffect(() => {
-        // Load the Yandex Maps API script dynamically
-        if (!document.querySelector('script[src*="api-maps.yandex.ru"]')) {
+        // Load Yandex Maps API script dynamically
+        if (!document.querySelector(`script[src*="api-maps.yandex.ru"]`)) {
             const script = document.createElement('script');
-            script.src = 'https://api-maps.yandex.ru/2.1/?apikey=b1f5e1c4-eb4c-4c38-bb54-e93afa79d36c&lang=en_US';
+            script.src = `https://api-maps.yandex.ru/2.1/?apikey=${YANDEX_MAPS_API_KEY}&lang=en_US`;
             script.async = true;
-            script.onload = () => {
-                ymaps.ready(() => {
-                    // Initialize the map
-                    const myMap = new ymaps.Map('map', {
-                        center: [41.2995, 69.2401],
-                        zoom: 12
-                    });
-
-                    // Set the map state
-                    setMap(myMap);
-
-                    console.log('Map initialized:', myMap);
-                });
-            };
+            script.onload = initializeMap;
             document.body.appendChild(script);
         }
     }, []);
 
-    // Function to create a circle with a specified color at a given point
-    const createCircle = (center, initialRadius, color) => {
-        const circle = new ymaps.Circle([
-            center, // Center coordinates (latitude, longitude)
-            initialRadius // Initial radius in meters
-        ], {
-            hintContent: 'Toxic smoke spread area',
-        }, {
-            strokeColor: color, // Custom color with 80% opacity
-            strokeWidth: 3, // Width of the circle's border
-            fillColor: color.replace('0.8', '0.3') // Change opacity for fill color
-        });
+    // Initialize Yandex map
+    const initializeMap = () => {
+        ymaps.ready(() => {
+            const myMap = new ymaps.Map('map', {
+                center: [41.2995, 69.2401],
+                zoom: 12,
+                controls: ['zoomControl'],
+            });
 
-        return circle;
+            myMap.behaviors.disable('scrollZoom');
+            setMap(myMap);
+            fetchWindDirection();
+        });
     };
 
-    // Function to animate the expansion of a circle
-    const animateCircle = (circle, speed) => {
-        let radius = circle.geometry.getRadius();
+    // Fetch wind direction data
+    const fetchWindDirection = async () => {
+        try {
+            const response = await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?q=Tashkent&appid=${OPENWEATHERMAP_API_KEY}`
+            );
+            const data = await response.json();
+            setWindDirection(data.wind.deg);
+        } catch (error) {
+            console.error('Failed to fetch wind direction data:', error);
+        }
+    };
 
+    // Calculate levels based on traffic data
+    const calculateLevels = (point) => {
+        const trafficData = point.trafficData ?? Math.random() * 10;
+        const toxicFumeData = point.toxicFumeData ?? Math.random() * 10;
+
+        return {
+            trafficLevel: trafficData.toFixed(1),
+            toxicLevel: toxicFumeData.toFixed(1),
+        };
+    };
+
+    // Create a shape with wind direction
+    const createShape = (center, initialRadius, point) => {
+        const { trafficLevel, toxicLevel } = calculateLevels(point);
+        const hintContent = `Traffic Level: ${trafficLevel}/10\nToxic Level: ${toxicLevel}/10`;
+
+        // Set color based on traffic and toxic levels
+        const color =
+            trafficLevel > 7 || toxicLevel > 7
+                ? 'rgba(255, 0, 0, 0.8)'
+                : trafficLevel > 4 || toxicLevel > 4
+                ? 'rgba(255, 165, 0, 0.8)'
+                : 'rgba(0, 255, 0, 0.8)';
+
+        const shape = new ymaps.Circle(
+            [center, initialRadius],
+            { hintContent },
+            {
+                strokeColor: color,
+                strokeWidth: 3,
+                fillColor: color.replace('0.3', '0.3'),
+                draggable: false,
+            }
+        );
+
+        // Set rotation angle based on wind direction
+        shape.options.set('rotationAngle', windDirection);
+
+        return shape;
+    };
+
+    // Animate a shape
+    const animateShape = (shape, speed) => {
+        let radius = shape.geometry.getRadius();
         const animate = () => {
-            radius += speed; // Increment radius based on specified speed
-            circle.geometry.setRadius(radius);
+            radius += speed;
+            shape.geometry.setRadius(radius);
 
-            // Continue animation until a max radius (e.g., 2000 meters) is reached
             if (radius < 2000) {
                 requestAnimationFrame(animate);
             }
@@ -60,53 +103,54 @@ const MapComponent = () => {
         requestAnimationFrame(animate);
     };
 
-    // Function to add circles at specified traffic points and animate them
-    const addAndAnimateCircles = (trafficPoints, speed = 0.5) => {
-        // Remove existing circles from the map
-        circles.forEach((circle) => map.geoObjects.remove(circle));
+    // Add and animate shapes based on traffic points
+    const addAndAnimateShapes = (trafficPoints, speed = 0.5) => {
+        // Remove existing circles
+        circles.forEach(shape => map.geoObjects.remove(shape));
         setCircles([]);
 
-        // Create and animate new circles at each traffic point
-        const newCircles = trafficPoints.map((point) => {
+        // Create and animate new shapes
+        const newShapes = trafficPoints.map(point => {
             const center = [point.latitude, point.longitude];
-            const initialRadius = 50; // Initial radius in meters
-            const color = point.color; // Specify the color based on the point's data
+            const initialRadius = 50;
 
-            // Create a circle with the specified color
-            const circle = createCircle(center, initialRadius, color);
+            const shape = createShape(center, initialRadius, point);
+            map.geoObjects.add(shape);
+            animateShape(shape, speed);
 
-            // Add the circle to the map
-            map.geoObjects.add(circle);
-
-            // Animate the circle's expansion with specified speed
-            animateCircle(circle, speed);
-
-            return circle;
+            return shape;
         });
 
-        // Update the circles state with the new circles
-        setCircles(newCircles);
+        setCircles(newShapes);
     };
 
-    // Define an array of 6 traffic points across the map with color information
+    // Traffic points data
     const trafficPoints = [
-        { latitude: 41.3624564206374, longitude: 69.29472898636432, color: 'rgba(255, 255, 0, 0.8)' }, // Yellow color
-        { latitude: 41.336478561809685, longitude: 69.27656530137705, color: 'rgba(255, 0, 0, 0.8)' }, // Red color
-        { latitude: 41.27820314252165, longitude: 69.2451116444077, color: 'rgba(255, 255, 0, 0.8)' }, // Yellow color
-        { latitude: 41.311941235284046, longitude: 69.24140534275567, color: 'rgba(255, 0, 0, 0.8)' }, // Red color
-        { latitude: 41.34680240120471, longitude: 69.20302556074161, color: 'rgba(255, 255, 0, 0.8)' }, // Yellow color
-        { latitude: 41.3200, longitude: 69.2650, color: 'rgba(255, 0, 0, 0.8)' } // Red color
+        { latitude: 41.362456, longitude: 69.294729, trafficData: 8, toxicFumeData: 6 },
+        { latitude: 41.336479, longitude: 69.276565, trafficData: 6, toxicFumeData: 4 },
+        { latitude: 41.278203, longitude: 69.245112, trafficData: 9, toxicFumeData: 8 },
+        { latitude: 41.311941, longitude: 69.241405, trafficData: 5, toxicFumeData: 2 },
+        { latitude: 41.346802, longitude: 69.203026, trafficData: 7, toxicFumeData: 3 },
+        { latitude: 41.3200, longitude: 69.2650, trafficData: 2, toxicFumeData: 1 },
     ];
 
-    // Add and animate the circles when the map is loaded
-    useEffect(() => {
+    // Handle button click
+    const handleGenerate = () => {
         if (map) {
-            // Add and animate circles with the specified speed
-            addAndAnimateCircles(trafficPoints, 0.5);
+            addAndAnimateShapes(trafficPoints, 0.5);
         }
-    }, [map]);
+    };
 
-    return <div id="map" style={{ width: '100%', height: '500px' }}></div>;
+    return (
+        <div>
+            {/* Map container */}
+            <div id="map" style={{ width: '100%', height: '500px' ,zIndex: -999  }}></div>
+            {/* Generate button */}
+            <button onClick={handleGenerate}  className="btnGenerate">
+                Generate
+            </button>
+        </div>
+    );
 };
 
 export default MapComponent;
