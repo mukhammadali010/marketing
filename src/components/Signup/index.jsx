@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Button from "../../Generics/Button";
 import { Container } from "./style";
 import google from "../../assets/img/google.png";
@@ -18,7 +18,7 @@ const SignUp = () => {
 
   console.log(data);
 
-  const { REACT_APP_BASE_URL: url } = process.env;
+  // const { REACT_APP_BASE_URL: url } = process.env;
 
  
 

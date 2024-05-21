@@ -1,6 +1,6 @@
 
 import AutoSanoat from "../components/AutoSanoat/index.jsx";
-import useUniqueId from "../hooks/index.jsx";
+// import useUniqueId from "../hooks/index.jsx";
 import React from "react";
 const Home = React.lazy(() => import("../pages/HomePage/HomePage.jsx"));
 const SignIn = React.lazy(() => import("../pages/SignInPage/SignInPage.jsx"));
@@ -8,7 +8,7 @@ const SignUp = React.lazy(() => import("../pages/SignUpPage/SignUpPage.jsx"));
 
 export const navbar = [
   {
-    id: useUniqueId,
+    id: '1',
     path: "home",
     title: "Home",
     element: (
@@ -20,7 +20,7 @@ export const navbar = [
     isHidden: false,
   },
   {
-    id: useUniqueId,
+    id: '2',
     path: "signin",
     title: "SignIn",
     element: (
@@ -32,7 +32,7 @@ export const navbar = [
     isHidden: false,
   },
   {
-    id: useUniqueId,
+    id: '3',
     path: "signup",
     title: "SignUp",
     element: (
@@ -44,7 +44,7 @@ export const navbar = [
     isHidden: false,
   },
   {
-    id: useUniqueId,
+    id: '4',
     path: "automobilSanoat",
     title: "automobilSanoat",
     element: (
@@ -57,7 +57,7 @@ export const navbar = [
   },
  
 //   {
-//     id: useUniqueId,
+//     id: '',
 //     path: "properties/:id",
 //     title: "Single house",
 //     element: (
@@ -69,7 +69,7 @@ export const navbar = [
 //     isHidden: true,
 //   },
 //   {
-//     id: useUniqueId, 
+//     id: '', 
 //     path: "register",
 //     title: "Register",
 //     element: (

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useSpring, animated } from 'react-spring';
 import { Container } from "./style";
 
@@ -18,6 +19,14 @@ const Card = ({ value }) => {
       </Container>
     </animated.div>
   );
+};
+
+Card.propTypes = {
+  value: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default Card;

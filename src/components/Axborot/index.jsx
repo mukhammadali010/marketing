@@ -32,7 +32,7 @@ const Axborot = () => {
           </div>
         </Slide>
       </div>
-      <div class="wrap">
+      <div className="wrap">
         <Slide in={inView} direction="right" timeout={3000}>
           <div className="cardMonitoring">
             <img src={galochka} alt="" width={'50px'} />
@@ -47,13 +47,13 @@ const Axborot = () => {
         </Slide>
       </div>
       <div>
-        <p className="eco">Ekologik muammolar – Toshkent shahri sanoat chiqindilari, avtomobillarning chiqindi gazlari va turar-joy binolarini isitish tufayli havoning katta ifloslanishi bilan bog'liq muammolarga duch kelmoqda. Qazib olinadigan yoqilg'ilarning yonishi atmosferaga zarrachalar (PM), azot oksidi (NOx), oltingugurt dioksidi (SO2) va uchuvchi organik birikmalar (VOC) kabi ifloslantiruvchi moddalarni chiqaradi. 
+        <p className="eco">{`Ekologik muammolar – Toshkent shahri sanoat chiqindilari, avtomobillarning chiqindi gazlari va turar-joy binolarini isitish tufayli havoning katta ifloslanishi bilan bog'liq muammolarga duch kelmoqda. Qazib olinadigan yoqilg'ilarning yonishi atmosferaga zarrachalar (PM), azot oksidi (NOx), oltingugurt dioksidi (SO2) va uchuvchi organik birikmalar (VOC) kabi ifloslantiruvchi moddalarni chiqaradi. 
 Havoning yuqori darajada ifloslanishi nafas olish yo'llari kasalliklari, yurak-qon tomir muammolari va shahar aholisining boshqa sog'liq muammolariga olib keladi. Bolalar, qariyalar va sog'lig'i oldindan mavjud bo'lgan shaxslar kabi zaif aholi guruhlari ayniqsa xavf ostida.
 
 Havo sifatining yomonligi atrof-muhitga ham ta'sir qiladi, jumladan o'simliklarning shikastlanishi, tuproqning degradatsiyasi va suv havzalarining kislotaliligi.
 Toshkent shahrida suvning ifloslanishi, birinchi navbatda, oqava suvlarni tozalash infratuzilmasining yetarli darajada emasligi, sanoat chiqindilari va qishloq xoʻjaligi suvlari bilan bogʻliq jiddiy tashvish tugʻdirmoqda. Og'ir metallar, pestitsidlar va organik ifloslantiruvchi moddalar kabi ifloslantiruvchi moddalar er usti va er osti suv manbalarini ifloslantiradi.
 Ifloslangan suv inson salomatligi uchun xavf tug'diradi, shu jumladan suv orqali yuqadigan kasalliklarning tarqalishi va zaharli moddalar ta'siridan uzoq muddatli sog'liqqa ta'sir qiladi. Bundan tashqari, ifloslangan suv havzalari suv ekotizimlarini buzadi va biologik xilma-xillikka tahdid soladi.
-
+`}
 </p>
       </div>
     </Container>

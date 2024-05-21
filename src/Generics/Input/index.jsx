@@ -1,7 +1,8 @@
-import React, { forwardRef } from "react";
-import { Container } from "./style";
+import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
+import { Container } from './style';
 
-export const Input = forwardRef(
+const Input = forwardRef(
   (
     {
       typing,
@@ -21,7 +22,7 @@ export const Input = forwardRef(
       type,
       onKeyPress
     },
-      ref , 
+    ref
   ) => {
     return (
       <Container
@@ -46,5 +47,27 @@ export const Input = forwardRef(
     );
   }
 );
+
+// Set the display name for better debugging
+Input.displayName = 'Input';
+
+Input.propTypes = {
+  typing: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  mt: PropTypes.string,
+  mb: PropTypes.string,
+  mr: PropTypes.string,
+  ml: PropTypes.string,
+  br: PropTypes.string,
+  gap: PropTypes.string,
+  padding: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+  defaultValue: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  onKeyPress: PropTypes.func,
+};
 
 export default Input;

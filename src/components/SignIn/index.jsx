@@ -5,7 +5,7 @@ import google from "../../assets/img/google.png";
 import facebook from "../../assets/img/facebook.png";
 import Input from "../../Generics/Input";
 const SignIn = () => {
-  const { REACT_APP_BASE_URL: url } = process.env;
+  // const { REACT_APP_BASE_URL: url } = process.env;
 
   const [data, setData] = useState({
     name:'',
