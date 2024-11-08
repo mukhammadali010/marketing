@@ -6,12 +6,14 @@ import MapComponent from "../YandexData";
 import Axborot from "../Axborot";
 import Malumotlar from "../Malumotlar";
 
+
 const BookStore = () => {
 
   return (
     <>
     <Container>
       <MapComponent/>
+     
       <Axborot/>
       <Malumotlar/>
       <Footer/>
