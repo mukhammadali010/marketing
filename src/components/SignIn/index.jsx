@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Button from "../../Generics/Button";
 import { Container } from "./style";
-import google from "../../assets/img/google.png";
-import facebook from "../../assets/img/facebook.png";
+// import google from "../../assets/img/google.png";
+// import facebook from "../../assets/img/facebook.png";
 import Input from "../../Generics/Input";
+import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   // const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -37,10 +38,14 @@ const SignIn = () => {
       redirect: 'follow'
     }).then((res)=>res.json()).then((res)=>console.log(res , 'resss'))
   }
+  const navigate = useNavigate()
+  const onSignUp =()=>{
+    navigate('/signup')
+  }
   return (
     <Container>
       <h2>Sign in</h2>
-      <Button type={"third"} width={""} br={"5"}>
+      {/* <Button type={"third"} width={""} br={"5"}>
         <img src={google}  alt={'google'}/> Continue with Google
       </Button>
       <Button type={"third"} width={""} br={"5"}>
@@ -50,36 +55,18 @@ const SignIn = () => {
         <div className="line"></div>
         <p>OR</p>
         <div className="line"></div>
-      </div>
+      </div> */}
       <form action="">
-        <label htmlFor="">Your name</label>
-        <Input
-          br={"6"}
-          mb={'16'}
-          mt={'4'}
-          name={'name'}
-          onChange={onChange}
-          typing={"register"}
-          placeholder={"Enter your name"}
-        />
+       
         <label htmlFor="">Your email</label>
         <Input br={"6"}
         mb={'16'}
         mt={'4'}
         name={'email'}
         onChange={onChange} typing={"register"} placeholder={"Enter your email"} />
-        <label htmlFor="">Your username</label>
-        <Input
-          br={"6"}
-          mb={'16'}
-          mt={'4'}
-          name={'key'}
-          onChange={onChange}
-          typing={"register"}
-          placeholder={"Enter your username"}
-        />
         <label htmlFor="">Your password</label>
         <Input
+        type={'password'}
           br={"6"}
           mb={'16'}
           mt={'4'}
@@ -90,7 +77,7 @@ const SignIn = () => {
         />
       </form>
         <Button type={'primary'} br={'6'} onclick={onSubmit}>Button</Button>
-        <p>Already signed up? <span>Go to sign up.</span></p>
+        <p onClick={()=>onSignUp()}>Already signed up? <span>Go to sign up.</span></p>
     </Container>
   );
 };

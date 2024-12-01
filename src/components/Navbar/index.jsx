@@ -85,13 +85,13 @@ const Navbar = () => {
                             <ListItemText primary={item} />
                           </ListItemButton>
                         ) : item === 'Aloqa' ? (
-                          <ListItemButton onClick={() => navigation('/contact')} sx={{ textAlign: 'center' }}>
+                          <ListItemButton onClick={() => navigation('/signup')} sx={{ textAlign: 'center' }}>
                             <ListItemText primary={item} />
                           </ListItemButton>
                         ) : (
                           <ListItemButton sx={{ textAlign: 'center' }}>
                             <ListItemText primary={item} />
-                          </ListItemButton>
+                          </ListItemButton> 
                         )}
                       </ListItem>
                     ))}
